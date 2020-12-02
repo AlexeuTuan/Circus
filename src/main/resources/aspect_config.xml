@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/aop
-       https://www.springframework.org/schema/aop/spring-aop.xsd">
+       http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.springinaction.springidol"/>
 
     <bean id="graciousContestant" class="com.springinaction.springidol.contestant.GraciousContestant"/>
     <bean id="guitar" class="com.springinaction.springidol.instrument.Guitar"/>
@@ -13,18 +15,5 @@
     <bean id="instrumentalist" class="com.springinaction.springidol.performer.Instrumentalist"
           p:song="Jingle Bell Pro Max 2"
           p:instrument-ref="guitar"/>
-
-
-    <aop:config>
-        <aop:aspect>
-
-            <aop:pointcut id="instrument" expression="execution(* com.springinaction.springidol.instrument.Guitar.play())"/>
-
-            <aop:declare-parents
-                    types-matching="com.springinaction.springidol.performer.Performer+"
-                    implement-interface="com.springinaction.springidol.contestant.Contestant"
-                    delegate-ref="graciousContestant"/>
-        </aop:aspect>
-    </aop:config>
 
 </beans>
