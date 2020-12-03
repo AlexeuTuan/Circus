@@ -11,20 +11,4 @@
        http://www.springframework.org/schema/aop
        https://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <context:component-scan base-package="com.springinaction.springidol">
-        <!-- Include necessary filters -->
-    </context:component-scan>
-
-    <aop:aspectj-autoproxy/>
-
-
-    <bean id="graciousContestant" class="com.springinaction.springidol.contestant.GraciousContestant"/>
-    <bean id="guitar" class="com.springinaction.springidol.instrument.Guitar"/>
-
-    <bean id="instrumentalist" class="com.springinaction.springidol.performer.Instrumentalist"
-          p:song="Jingle Bell Pro Max 2"
-          p:instrument-ref="guitar"/>
-
-<!--    <bean id="audience" class="com.springinaction.springidol.audience.Audience"/>-->
-
 </beans>

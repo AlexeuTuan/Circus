@@ -1,6 +1,12 @@
 package com.springinaction.springidol.mindreader;
 
+
+import org.springframework.stereotype.Component;
+
+@Component
 public class Volunteer implements Thinker {
+
+    // @Value("Example Thought")
     private String thoughts;
 
     public void thinkOfSomething(String thoughts) {

@@ -1,19 +1,12 @@
 package com.springinaction.springidol;
 
-import com.springinaction.springidol.audience.Audience;
-import com.springinaction.springidol.performer.PerformanceException;
-import com.springinaction.springidol.performer.Performer;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
+import com.springinaction.springidol.mindreader.Volunteer;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
-
-    public static void main(String[] args) throws PerformanceException {
-        ApplicationContext aspectContext = new ClassPathXmlApplicationContext("aspect_config.xml");
-
-        Performer performer = (Performer) aspectContext.getBean("instrumentalist");
-        performer.perform();
+    public static void main(String[] args) {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfigurator.class);
+        Volunteer volunteer = (Volunteer) context.getBean("volunteer");
+        volunteer.thinkOfSomething("thoughts");
     }
-
 }

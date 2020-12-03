@@ -2,7 +2,6 @@ package com.springinaction.springidol.performer;
 
 import org.springframework.stereotype.Component;
 
-@Component
 public class Juggler implements Performer {
     private int beanBags = 3;
     public Juggler() {
