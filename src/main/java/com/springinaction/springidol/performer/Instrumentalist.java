@@ -7,29 +7,29 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Instrumentalist implements Performer {
+    @Value("123")
     private String song;
+
+    @Autowired
     private Instrument instrument;
+
+    public Instrumentalist() {
+    }
 
     public Instrumentalist(String song, Instrument instrument) {
         this.song = song;
         this.instrument = instrument;
     }
 
-
     public String getSong() {
         return song;
     }
-
-    @Value("123")
     public void setSong(String song) {
         this.song = song;
     }
-
     public Instrument getInstrument() {
         return instrument;
     }
-
-    @Autowired
     public void setInstrument(Instrument instrument) {
         this.instrument = instrument;
     }
